@@ -1,0 +1,15 @@
+@page "/chartdata"
+
+<button class="btn btn-primary" @onclick="ButtonClicked">Create Chart</button>
+<div id="BarCharts"></div>
+
+@code{ 
+
+[Inject]
+IJSRuntime JSRuntime { get; set; }
+
+   private async Task ButtonClicked()
+   {       
+       await JSRuntime.InvokeVoidAsync("CreateCharts");
+   }
+}
